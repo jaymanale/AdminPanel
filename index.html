@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    
+ <link rel="stylesheet" href="css/semantic.min.css">
+        <script src="js/jquery-2.2.0.js"></script>
+        <script type="js/semantic.min.js"></script>
+        <script src="js/mustache.js"></script>
+       <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        
+        <script id="home" type="x-tmpl-mustache">
+            <h2>Parse Employee Database</h2>
+            <div>
+                <button type="button" id="logout">Logout</button>
+                <button type="button" id="addNew">Add Employee</button>
+            </div> 
+                <br>
+                <hr>
+                {{#.}}
+                <div>
+                    <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b> 
+                </div>
+                <div>
+                    <img src={{attributes.employeePhoto._url}} style="height:140px; width:140px;"> 
+                </div>
+                <br>
+                <div>
+                    <b>{{attributes.employeeTitle}}<b> <b>{{attributes.employeeSocial}}<b>
+                </div>
+                <br>
+                <div>
+                    <button type="button" id="editButton" onclick="editEmployee('{{id}}')">Edit Employee</button>
+                    <button type="button" id="deleteButton" onclick="deleteEmployee('{{id}}')">Delete Employee</button>
+                </div>
+                <hr>
+                {{/.}}
+        </script>
+        
+        <script id="login" type="x-tmpl-mustache">
+            <div class="ui one column center aligned grid">
+  <div class="column six wide form-holder">
+    <h2 class="center aligned header form-head">Sign in</h2>
+    <div class="ui form">
+      <div class="field">
+       <input type="email" name="username" id="username">
+      </div>
+      <div class="field">
+        <input type="password" name="password" id="password">
+      </div>
+      <div class="field">
+    
+             <button type="button" id="loginButton" class="ui button large fluid green">Login</button>
+               
+      </div>
+        <div class="field">
+       <button type="button" id="signUpButton" class="ui button large fluid green">Sign Up</button>
+      </div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox">
+          <label>Remember me</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            // <h2>Login</h2>
+            // <div>
+            //     <p>Email Address</p> 
+            //     <input type="email" name="username" id="username">
+            // </div>
+            //  <div>
+            //     <p>Password</p> 
+            //     <input type="password" name="password" id="password">
+            // </div>
+            // <br>
+            // <div>
+            //     <button type="button" id="loginButton">Login</button>
+            //     <button type="button" id="signUpButton">Sign Up</button>
+            // </div>
+        </script>
+        
+        <script id="sign-up" type="x-tmpl-mustache">
+            <h2>Register</h2>
+            <div>
+                <p>Email Address</p> 
+                <input type="email" name="username" id="username">
+            </div>
+            
+            <div>
+                <p>Password</p> 
+                <input type="password" name="password" id="password">
+            </div>
+            
+            <div>
+                <p>Confirm Password</p> 
+                <input type="password" name="password2" id="password2">
+            </div>
+            <br>
+            
+            <div>
+                <button type="button" id="registerButton">Register</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </div>    
+        </script>
+        
+        <script id="add" type="x-tmpl-mustache">
+            <h2>Add an Employee</h2>
+            <div>
+                <p>Employee First Name</p> 
+                <input type="text" name="employeeFirstName" id="employeeFirstName"> 
+            </div>
+            <div>
+                <p>Employee Last Name</p> 
+                <input type="text" name="employeeLastName" id="employeeLastName"> 
+            </div>
+            <div>
+                <p>Title</p> 
+                <input type="text" name="employeeTitle" id="employeeTitle"> 
+            </div>
+            <div>
+                <p>Social</p> 
+                <input type="text" name="employeeSocial" id="employeeSocial"> 
+            </div>
+            <div>
+                <p>Add an Image</p> 
+                <input type="file" name="employeePhoto" id="employeePhoto">
+            </div>
+            <br>
+            <div>
+                <button type="button" id="addEmployee">Add Employee</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </div>    
+        
+        </script>
+        
+        <script id="edit" type="x-tmpl-mustache">
+            <h2>Edit Employee</h2>
+            <div>
+                <p>Employee First Name</p> 
+                <input type="text" name="employeeFirstName" id="employeeFirstName" value="{{attributes.employeeFirstName}}"> 
+            </div>
+            <div>
+                <p>Employee Last Name</p> 
+                <input type="text" name="employeeLastName" id="employeeLastName" value="{{attributes.employeeLastName}}"> 
+            </div>
+            <div>
+                <p>Title</p> 
+                <input type="text" name="employeeTitle" id="employeeTitle" value="{{attributes.employeeTitle}}"> 
+            </div>
+            <div>
+                <p>Social</p> 
+                <input type="text" name="employeeSocial" id="employeeSocial" value="{{attributes.employeeSocial}}"> 
+            </div>
+            
+            <br>
+            <div>
+                <button type="button" id="updateEmployee" onclick="updateEmployee('{{id}}')">Update Employee</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </div>    
+        
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="template-view"></div>   
+    
+    </body>
+    
+
+</html>
