@@ -16,32 +16,37 @@
 
 <body>
 
-    <script id="home" type="x-tmpl-mustache">
-        <h2>Parse Employee Database</h2>
-        <div>
-            <button type="button" id="logout">Logout</button>
-            <button type="button" id="addNew">Add Employee</button>
-        </div>
-        <br>
-        <hr> {{#.}}
-        <div>
-            <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b>
-                </div>
-                <div>
-                    <img src={{attributes.employeePhoto._url}} style="height:140px; width:140px;">
-                </div>
-                <br>
-                <div>
-                    <b>{{attributes.employeeTitle}}<b> <b>{{attributes.employeeSocial}}<b>
-                </div>
-                <br>
-                <div>
-                    <button type="button" id="editButton" onclick="editEmployee('{{id}}')">Edit Employee</button>
-                    <button type="button" id="deleteButton" onclick="deleteEmployee('{{id}}')">Delete Employee</button>
-                </div>
-                <hr>
-                {{/.}}
-        </script>
+  <script id="home" type="x-tmpl-mustache">
+  <div id="Home-Page-Title">
+      <h2>PDS Admin Panel</h2>
+      <div>
+          <button type="button" class="positive ui button" id="addNew">Add Allocation Entry</button>
+          <button type="button" class="ui button" id="logout">Logout</button>
+
+      </div>
+      </div>
+          <br>
+          <hr>
+          {{#.}}
+          <div>
+              <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b>
+          </div>
+          <div>
+              <img src={{attributes.employeePhoto._url}} style="height:140px; width:140px;">
+          </div>
+          <br>
+          <div>
+              <b>{{attributes.employeeTitle}}<b> <b>{{attributes.employeeSocial}}<b>
+          </div>
+          <br>
+          <div>
+              <button type="button" id="editButton" onclick="editEmployee('{{id}}')">Edit Employee</button>
+              <button type="button" id="deleteButton" onclick="deleteEmployee('{{id}}')">Delete Employee</button>
+          </div>
+          <hr>
+          {{/.}}
+  </script>
+
 
         <script id="login" type="x-tmpl-mustache">
         <div id="LoginPage">
