@@ -24,36 +24,56 @@
             <div>
                 <button type="button" class="positive ui button" id="addNew"><i class="add circle icon"></i>Add Allocation Entry</button>
                 <button type="button" class="ui button" id="logout"><i class="sign out icon"></i>Logout</button>
-
+                <table class="ui celled table">
+             <thead>
+                <tr><th>Shop Number</th>
+                <th>Rice Quantity</th>
+                <th>Wheat Qunatity</th>
+                 <th>Sugar Qunatity</th>
+                  <th>Rice Fair</th>
+                   <th>Wheat Fair</th>
+                    <th>Sugar Fiar</th>
+                    <th>Actions</th>
+              </tr></thead>
+              <tbody>
             </div>
+
         </div>
-        <br>
-        <hr> {{#.}}
-        <div>
-            <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b>
-          </div>
-          <div>
-              <img src={{attributes.employeePhoto._url}} style="height:140px; width:140px;">
-          </div>
-          <br>
-          <div>
-              <b>{{attributes.employeeTitle}}<b> <b>{{attributes.employeeSocial}}<b>
-          </div>
-          <br>
-          <div>
-              <button type="button" id="editButton" onclick="editEmployee('{{id}}')">Edit Employee</button>
-              <button type="button" id="deleteButton" onclick="deleteEmployee('{{id}}')">Delete Employee</button>
-          </div>
-          <hr>
-          {{/.}}
+
+
+
+                    {{#.}}
+
+               <tr>
+                   <td><b>{{attributes.vendorShopNo}}</b></td>
+                   <td><b>{{attributes.Rice}}</b></td>
+                   <td><b>{{attributes.Wheat}}</b></td>
+                   <td><b>{{attributes.Sugar}}</b></td>
+                   <td><b>{{attributes.RiceFair}}</b></td>
+                   <td><b>{{attributes.WheatFair}}</b></td>
+                   <td><b>{{attributes.SugarFair}}</b></td>
+
+                  <td> <button type="button" id="editButton" onclick="editEmployee('{{id}}')" class="ui button large  green"><i class="edit icon"></i> Edit Record</button>
+                   <button type="button" id="deleteButton" onclick="deleteEmployee('{{id}}')" class="ui button large  red"><i class="remove icon"></i>Delete Record</button></td>
+
+                   </tr>
+
+
+
+
+
+
+                 {{/.}}
+                  </tbody>
+                   </table>
   </script>
 
 
         <script id="login" type="x-tmpl-mustache">
-        <div id="LoginPage">
+          <div id="LoginPage">
             <div class="ui one column center aligned grid">
   <div class="column six wide form-holder">
-    <h2 class="center aligned header form-head">Welcom to PDS</h2>
+    <h2 class="center aligned header form-head">Welcome to PDS</h2>
     <div class="ui form">
       <div class="field">
        <input type="email" name="username" id="username" placeholder="User e-mail ID">
@@ -73,12 +93,13 @@
     </div>
   </div>
 </div>
-</div>
+
+
         </script>
 
         <script id="sign-up" type="x-tmpl-mustache">
 
-        <div id="LoginPage">
+        <div id="SignupPage">
             <div class="ui one column center aligned grid">
         <div class="column six wide form-holder">
         <h2 class="center aligned header form-head">Register</h2>
@@ -107,60 +128,98 @@
         </script>
 
         <script id="add" type="x-tmpl-mustache">
-        <div id="Add-Employee"
-            <h2>PDS Allocation </h2>
-            <div>
-                <p>Employee First Name</p>
-                <input type="text" name="employeeFirstName" id="employeeFirstName">
-            </div>
-            <div>
-                <p>Employee Last Name</p>
-                <input type="text" name="employeeLastName" id="employeeLastName">
-            </div>
-            <div>
-                <p>Title</p>
-                <input type="text" name="employeeTitle" id="employeeTitle">
-            </div>
-            <div>
-                <p>Social</p>
-                <input type="text" name="employeeSocial" id="employeeSocial">
-            </div>
-            <div>
-                <p>Add an Image</p>
-                <input type="file" name="employeePhoto" id="employeePhoto">
-            </div>
-            <br>
-            <div>
-                <button type="button" id="addEmployee">Add Employee</button>
-                <button type="button" id="cancelButton">Cancel</button>
-            </div>
-            </div>
+
+
+
+         <div id="Add-Employee">
+
+                    <div class="ui one column center aligned grid">
+                <div class="column six wide form-holder">
+                <h2 class="center aligned header form-head">PDS Allocation </h2>
+                <div class="ui form">
+                <div class="field">
+                <input type="number" name="vendorShopNo" id="vendorShopNo" placeholder="Enter Shop number">
+                </div>
+                <div class="field">
+                   <input type="number" name="Rice" id="Rice" placeholder="Rice Quantity">
+                </div>
+                <div class="field">
+               <input type="number" name="Wheat" id="Wheat" placeholder="Wheat Quantity">
+                </div>
+                <div class="field">
+                     <input type="number" name="Sugar" id="Sugar" placeholder="Sugar Quantity">
+                </div>
+                <div class="field">
+                     <input type="number" name="RiceFair" id="RiceFair" placeholder="Enter Rice Fair">
+                </div>
+                <div class="field">
+                     <input type="number" name="WheatFair" id="WheatFair" placeholder="Enter Wheat Fair">
+                </div>
+                <div class="field">
+                     <input type="number" name="SugarFair" id="SugarFair" placeholder="Enter Sugar Fair">
+                </div>
+
+                <div class="field">
+                    <button type="button" id="addEmployee" class="ui button large fluid green addRecord"><i class="add user icon"></i>Add Recoed</button>
+
+                </div>
+                <div class="field">
+                <button type="button" id="cancelButton"class="ui button large fluid red"><i class="remove icon"></i>Cancel</button>
+
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
         </script>
 
         <script id="edit" type="x-tmpl-mustache">
-            <h2>Edit Employee</h2>
-            <div>
-                <p>Employee First Name</p>
-                <input type="text" name="employeeFirstName" id="employeeFirstName" value="{{attributes.employeeFirstName}}">
-            </div>
-            <div>
-                <p>Employee Last Name</p>
-                <input type="text" name="employeeLastName" id="employeeLastName" value="{{attributes.employeeLastName}}">
-            </div>
-            <div>
-                <p>Title</p>
-                <input type="text" name="employeeTitle" id="employeeTitle" value="{{attributes.employeeTitle}}">
-            </div>
-            <div>
-                <p>Social</p>
-                <input type="text" name="employeeSocial" id="employeeSocial" value="{{attributes.employeeSocial}}">
-            </div>
 
-            <br>
-            <div>
-                <button type="button" id="updateEmployee" onclick="updateEmployee('{{id}}')">Update Employee</button>
-                <button type="button" id="cancelButton">Cancel</button>
-            </div>
+        <div id="Edit-Employee">
+        <div class="ui one column center aligned grid">
+    <div class="column six wide form-holder">
+    <h2 class="center aligned header form-head">Update Allocation </h2>
+    <div class="ui form">
+    <div class="field">
+    <input type="text" name="vendorShopNo" id="vendorShopNo"  placeholder="Enter Shop number" value="{{attributes.vendorShopNo}}">
+    </div>
+    <div class="field">
+       <input type="text" name="Rice" id="Rice" placeholder="Rice Quantity" value="{{attributes.Rice}}">
+    </div>
+    <div class="field">
+   <input type="text" name="Wheat" id="Wheat" placeholder="Wheat Quantity" value="{{attributes.Wheat}}">
+    </div>
+    <div class="field">
+         <input type="text" name="Sugar" id="Sugar" placeholder="Sugar Quantity" value="{{attributes.Sugar}}">
+    </div>
+    <div class="field">
+         <input type="text" name="RiceFair" id="RiceFair" placeholder="Enter Rice Fair" value="{{attributes.RiceFair}}">
+    </div>
+    <div class="field">
+         <input type="text" name="WheatFair" id="WheatFair" placeholder="Enter Wheat Fair" value="{{attributes.WheatFair}}">
+    </div>
+    <div class="field">
+         <input type="text" name="SugarFair" id="SugarFair" placeholder="Enter Sugar Fair" value="{{attributes.SugarFair}}">
+    </div>
+
+    <div class="field">
+    <button type="button" id="updateEmployee" onclick="updateEmployee('{{id}}')" class="ui button large fluid green"><i class="add user icon"></i>Update Employee</button>
+
+    </div>
+    <div class="field">
+    <button type="button" id="cancelButton" class="ui button large fluid red"><i class="remove icon"></i>Cancel</button>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
 
         </script>
 

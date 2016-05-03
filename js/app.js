@@ -44,25 +44,30 @@ function dataService(dataType){
 
 function editEmployee(id){
     dataService(id).then(function(result){
-
-
            navigatePages('#edit', result);
     });
 
 }
 
 function updateEmployee(id){
-    var employeeFirstName = $('#employeeFirstName').val();
-    var employeeLastName = $('#employeeLastName').val();
-    var employeeTitle = $('#employeeTitle').val();
-    var employeeSocial = $('#employeeSocial').val();
+    var vendorShopNo = $('#vendorShopNo').val();
+    var Rice = $('#Rice').val();
+    var Wheat = $('#Wheat').val();
+    var Sugar = $('#Sugar').val();
+    var RiceFair = $('#RiceFair').val();
+    var WheatFair = $('#WheatFair').val();
+    var SugarFair = $('#SugarFair').val();
 
      dataService(id).then(function(result){
 
-        result.set('employeeFirstName', employeeFirstName);
-        result.set('employeeLastName', employeeLastName);
-        result.set('employeeTitle', employeeTitle);
-        result.set('employeeSocial', employeeSocial);
+        result.set('vendorShopNo', vendorShopNo);
+        result.set('Rice', Rice);
+        result.set('Wheat', Wheat);
+        result.set('Sugar', Sugar);
+
+        result.set('RiceFair', RiceFair);
+        result.set('WheatFair', WheatFair);
+        result.set('SugarFair', SugarFair);
 
         result.save();
 
@@ -79,7 +84,7 @@ function deleteEmployee(id){
         result.destroy({
             success: function(result) {
 
-                alert('Delete Employee ID : ' + result.id);
+                alert('Delete Record ID : ' + result.id);
                 location.reload();
 
             },
@@ -158,40 +163,48 @@ function logOn () {
 
 function addEmp () {
 
-	var employeeFirstName = $('#employeeFirstName').val();
-    var employeeLastName = $('#employeeLastName').val();
-    var employeeTitle = $('#employeeTitle').val();
-    var employeeSocial = $('#employeeSocial').val();
-    var employeePhoto = $('#employeePhoto')[0];
+	var vendorShopNo = $('#vendorShopNo').val();
+    var Rice = $('#Rice').val();
+    var Wheat = $('#Wheat').val();
+    var Sugar = $('#Sugar').val();
+      var RiceFair = $('#RiceFair').val();
+      var WheatFair = $('#WheatFair').val();
+      var SugarFair = $('#SugarFair').val();
+    // var employeePhoto = $('#employeePhoto')[0];
+    //
+    // var tmpPic = employeePhoto.files[0];
+    // var tmpName = 'employeePhoto.jpg';
+    //
+    // var myImage = new Parse.File(tmpName, tmpPic);
 
-    var tmpPic = employeePhoto.files[0];
-    var tmpName = 'employeePhoto.jpg';
-
-    var myImage = new Parse.File(tmpName, tmpPic);
-
-    myImage.save().then(function() {
-        console.log('Saved image for employee ' + employeeFirstName + '' + employeeLastName);
-    },
-    function(error) {
-        alert('could not save image beacuse of ' + error);
-    });
+    // myImage.save().then(function() {
+    //     console.log('Saved image for employee ' + employeeFirstName + '' + employeeLastName);
+    // },
+    // function(error) {
+    //     alert('could not save image beacuse of ' + error);
+    // });
 
     var NewEmp = Parse.Object.extend('Employees');
     var newEmployee = new NewEmp();
 
-    newEmployee.set('employeeFirstName', employeeFirstName);
-    newEmployee.set('employeeLastName', employeeLastName);
-    newEmployee.set('employeeTitle', employeeTitle);
-    newEmployee.set('employeeSocial', employeeSocial);
-    newEmployee.set('employeePhoto', myImage);
+    newEmployee.set('vendorShopNo', vendorShopNo);
+    newEmployee.set('Rice', Rice);
+    newEmployee.set('Wheat', Wheat);
+    newEmployee.set('Sugar', Sugar);
+    newEmployee.set('RiceFair', RiceFair);
+    newEmployee.set('WheatFair', WheatFair);
+    newEmployee.set('SugarFair', SugarFair);
+
+    // newEmployee.set('employeePhoto', myImage);
 
      newEmployee.save(null, {
         success: function(obj) {
-            alert('New Employee created with objectId: ' + obj.id);
+          // change id with shop number
+            alert('New Record created with objectId: ' + obj.id);
             location.reload();
         },
         error: function(obj, error) {
-            alert('Failed to create new Employee, with error code: ' + error.message);
+            alert('Failed to create new Record, with error code: ' + error.message);
 
         }
     });
@@ -254,7 +267,7 @@ function navigatePages (temp, obj) {
     }
 
     if (temp == '#edit') {
-      $('#updateEmployee').click(updateEmployee);
+      // $('#updateEmployee').click(updateEmployee);
         $('#cancelButton').click(function() {
             location.reload();
         });
