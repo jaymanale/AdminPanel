@@ -5,8 +5,8 @@
     <title>Pds System</title>
 
     <link rel="stylesheet" href="css/semantic.min.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
 
     <script src="js/jquery-2.2.0.js"></script>
     <script type="js/semantic.min.js"></script>
@@ -18,20 +18,19 @@
 
 <body>
 
-  <script id="home" type="x-tmpl-mustache">
-  <div id="Home-Page-Title">
-      <h2>PDS Admin Panel</h2>
-      <div>
-          <button type="button" class="positive ui button" id="addNew"><i class="add circle icon"></i>Add Allocation Entry</button>
-          <button type="button" class="ui button" id="logout"><i class="sign out icon"></i>Logout</button>
+    <script id="home" type="x-tmpl-mustache">
+        <div id="Home-Page-Title">
+            <h2>PDS Admin Panel</h2>
+            <div>
+                <button type="button" class="positive ui button" id="addNew"><i class="add circle icon"></i>Add Allocation Entry</button>
+                <button type="button" class="ui button" id="logout"><i class="sign out icon"></i>Logout</button>
 
-      </div>
-      </div>
-          <br>
-          <hr>
-          {{#.}}
-          <div>
-              <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b>
+            </div>
+        </div>
+        <br>
+        <hr> {{#.}}
+        <div>
+            <b>{{attributes.employeeFirstName}}<b> <b>{{attributes.employeeLastName}}<b>
           </div>
           <div>
               <img src={{attributes.employeePhoto._url}} style="height:140px; width:140px;">
@@ -78,27 +77,33 @@
         </script>
 
         <script id="sign-up" type="x-tmpl-mustache">
-            <h2>Register</h2>
-            <div>
-                <p>Email Address</p>
-                <input type="email" name="username" id="username">
-            </div>
 
-            <div>
-                <p>Password</p>
-                <input type="password" name="password" id="password">
-            </div>
+        <div id="LoginPage">
+            <div class="ui one column center aligned grid">
+        <div class="column six wide form-holder">
+        <h2 class="center aligned header form-head">Register</h2>
+        <div class="ui form">
+        <div class="field">
+        <input type="email" name="username" id="username" placeholder="Enter e-mail ID">
+        </div>
+        <div class="field">
+         <input type="password" name="password" id="password" placeholder="Enter Password">
+        </div>
+        <div class="field">
+            <input type="password" name="password2" id="password2" placeholder="Confirm Password">
+        </div>
+        <div class="field">
+         <button type="button" id="registerButton" class="ui button large fluid green"><i class="add user icon"></i>Register</button>
+        </div>
+        <div class="field">
+          <button type="button" id="cancelButton" class="ui button large fluid red"><i class="remove icon"></i>Cancel</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
 
-            <div>
-                <p>Confirm Password</p>
-                <input type="password" name="password2" id="password2">
-            </div>
-            <br>
-
-            <div>
-                <button type="button" id="registerButton">Register</button>
-                <button type="button" id="cancelButton">Cancel</button>
-            </div>
         </script>
 
         <script id="add" type="x-tmpl-mustache">
