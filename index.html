@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="css/semantic.min.css">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+
     <script src="js/jquery-2.2.0.js"></script>
     <script type="js/semantic.min.js"></script>
     <script src="js/mustache.js"></script>
@@ -20,8 +22,8 @@
   <div id="Home-Page-Title">
       <h2>PDS Admin Panel</h2>
       <div>
-          <button type="button" class="positive ui button" id="addNew">Add Allocation Entry</button>
-          <button type="button" class="ui button" id="logout">Logout</button>
+          <button type="button" class="positive ui button" id="addNew"><i class="add circle icon"></i>Add Allocation Entry</button>
+          <button type="button" class="ui button" id="logout"><i class="sign out icon"></i>Logout</button>
 
       </div>
       </div>
@@ -52,21 +54,21 @@
         <div id="LoginPage">
             <div class="ui one column center aligned grid">
   <div class="column six wide form-holder">
-    <h2 class="center aligned header form-head">Sign in</h2>
+    <h2 class="center aligned header form-head">Welcom to PDS</h2>
     <div class="ui form">
       <div class="field">
-       <input type="email" name="username" id="username">
+       <input type="email" name="username" id="username" placeholder="User e-mail ID">
       </div>
       <div class="field">
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
       </div>
       <div class="field">
 
-             <button type="button" id="loginButton" class="ui button large fluid green">Login</button>
+             <button type="button" id="loginButton" class="ui button large fluid green"><i class="sign in icon"></i>Login</button>
 
       </div>
         <div class="field">
-       <button type="button" id="signUpButton" class="ui button large fluid green">Sign Up</button>
+       <button type="button" id="signUpButton" class="ui button large fluid blue">Sign Up</button>
       </div>
       </div>
     </div>
@@ -100,7 +102,8 @@
         </script>
 
         <script id="add" type="x-tmpl-mustache">
-            <h2>Add an Employee</h2>
+        <div id="Add-Employee"
+            <h2>PDS Allocation </h2>
             <div>
                 <p>Employee First Name</p>
                 <input type="text" name="employeeFirstName" id="employeeFirstName">
@@ -126,7 +129,7 @@
                 <button type="button" id="addEmployee">Add Employee</button>
                 <button type="button" id="cancelButton">Cancel</button>
             </div>
-
+            </div>
         </script>
 
         <script id="edit" type="x-tmpl-mustache">
